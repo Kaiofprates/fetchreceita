@@ -40,4 +40,13 @@ public class QsaModel {
     public void setQual(String qual) {
         this.qual = qual;
     }
+
+    @Override
+    public String toString() {
+        return "QsaModel{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", qual='" + qual + '\'' +
+                '}';
+    }
 }

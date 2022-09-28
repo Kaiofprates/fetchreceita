@@ -22,7 +22,8 @@ public class InfoReceitaService {
 
     public void save(InfoReceitaDto dto) {
         InfoReceitaModel model = InfoModelMapper.INSTANCE.mapFrom(dto);
-        repository.save(model);
+        InfoReceitaModel response = repository.save(model);
+        System.out.println(response);
     }
 
     public InfoReceitaModel findByCnpj(String cnpj) throws Exception {

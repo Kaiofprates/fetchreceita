@@ -13,16 +13,16 @@ public class InfoReceitaModel {
     @Column(name = "info_id")
     private UUID id;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "info_id", referencedColumnName = "info_id")
     private List<AtividadePrincipalModel> atividadePrincipal;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "atividade_secundaria_id", referencedColumnName = "info_id")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "info_id", referencedColumnName = "info_id")
     private List<AtividadeSecundariaModel> atividadesSecundarias;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "qsa_id", referencedColumnName = "info_id")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "info_id", referencedColumnName = "info_id")
     private List<QsaModel> qsa;
 
     private String dataSituacao;
@@ -227,5 +227,34 @@ public class InfoReceitaModel {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return "InfoReceitaModel{" +
+                "id=" + id +
+                ", atividadePrincipal=" + atividadePrincipal +
+                ", atividadesSecundarias=" + atividadesSecundarias +
+                ", qsa=" + qsa +
+                ", dataSituacao='" + dataSituacao + '\'' +
+                ", cnpj='" + cnpj + '\'' +
+                ", natureza='" + natureza + '\'' +
+                ", capitalSocial=" + capitalSocial +
+                ", complemento='" + complemento + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", nome='" + nome + '\'' +
+                ", efr='" + efr + '\'' +
+                ", uf='" + uf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", email='" + email + '\'' +
+                ", situacao='" + situacao + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", logradouro='" + logradouro + '\'' +
+                ", numero='" + numero + '\'' +
+                ", cep='" + cep + '\'' +
+                ", municipio='" + municipio + '\'' +
+                ", porte='" + porte + '\'' +
+                ", abertura='" + abertura + '\'' +
+                '}';
     }
 }

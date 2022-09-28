@@ -10,4 +10,5 @@ import java.util.UUID;
 @Repository
 public interface InfoReceitaRepository extends JpaRepository<InfoReceitaModel, UUID> {
     Optional<InfoReceitaModel> findByCnpj(String cnpj);
+    Optional<InfoReceitaModel> findInfoReceitaById(UUID uuid);
 }

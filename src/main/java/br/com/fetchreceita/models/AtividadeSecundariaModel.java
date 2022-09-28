@@ -38,4 +38,13 @@ public class AtividadeSecundariaModel {
     public void setCode(String code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        return "AtividadeSecundariaModel{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", code='" + code + '\'' +
+                '}';
+    }
 }
