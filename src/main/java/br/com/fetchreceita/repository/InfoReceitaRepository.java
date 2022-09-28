@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface InfoReceitaRepository extends JpaRepository<InfoReceitaModel, UUID> {
+public interface InfoReceitaRepository extends JpaRepository<InfoReceitaModel, Long> {
     Optional<InfoReceitaModel> findByCnpj(String cnpj);
-    Optional<InfoReceitaModel> findInfoReceitaById(UUID uuid);
+    Optional<InfoReceitaModel> findInfoReceitaById(Long id);
 }

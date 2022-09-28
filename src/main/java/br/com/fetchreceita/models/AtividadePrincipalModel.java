@@ -15,13 +15,6 @@ public class AtividadePrincipalModel {
     private String text;
     private String code;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getText() {
         return text;
@@ -46,5 +39,13 @@ public class AtividadePrincipalModel {
                 ", text='" + text + '\'' +
                 ", code='" + code + '\'' +
                 '}';
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 }

@@ -9,9 +9,9 @@ import java.util.UUID;
 public class InfoReceitaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "info_id")
-    private UUID id;
+    private Long id;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "info_id", referencedColumnName = "info_id")
@@ -45,13 +45,7 @@ public class InfoReceitaModel {
     private String porte;
     private String abertura;
 
-    public UUID getId() {
-        return id;
-    }
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public List<AtividadePrincipalModel> getAtividadePrincipal() {
         return atividadePrincipal;
@@ -256,5 +250,13 @@ public class InfoReceitaModel {
                 ", porte='" + porte + '\'' +
                 ", abertura='" + abertura + '\'' +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
