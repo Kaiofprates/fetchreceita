@@ -1,18 +1,15 @@
 package br.com.fetchreceita.models;
 
-import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class AtividadeModel {
+@Table(name = "TB_ATIVIDADE_PRINCIPAL")
+public class AtividadePrincipalModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "atividade_principal_id")
     private UUID id;
 
     private String text;

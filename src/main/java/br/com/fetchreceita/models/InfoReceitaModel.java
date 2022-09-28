@@ -1,9 +1,5 @@
 package br.com.fetchreceita.models;
 
-import br.com.fetchreceita.dto.AtividadeDto;
-import br.com.fetchreceita.dto.QsaDto;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -14,19 +10,22 @@ public class InfoReceitaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "info_id")
     private UUID id;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<AtividadeModel> atividadePrincipal;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "info_id", referencedColumnName = "info_id")
+    private List<AtividadePrincipalModel> atividadePrincipal;
 
-    private String dataSituacao;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "atividade_secundaria_id", referencedColumnName = "info_id")
+    private List<AtividadeSecundariaModel> atividadesSecundarias;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<AtividadeModel> atividadesSecundarias;
-
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "qsa_id", referencedColumnName = "info_id")
     private List<QsaModel> qsa;
 
+    private String dataSituacao;
     private String cnpj;
     private String natureza;
     private Double capitalSocial;
@@ -54,11 +53,11 @@ public class InfoReceitaModel {
         this.id = id;
     }
 
-    public List<AtividadeModel> getAtividadePrincipal() {
+    public List<AtividadePrincipalModel> getAtividadePrincipal() {
         return atividadePrincipal;
     }
 
-    public void setAtividadePrincipal(List<AtividadeModel> atividadePrincipal) {
+    public void setAtividadePrincipal(List<AtividadePrincipalModel> atividadePrincipal) {
         this.atividadePrincipal = atividadePrincipal;
     }
 
@@ -70,11 +69,11 @@ public class InfoReceitaModel {
         this.dataSituacao = dataSituacao;
     }
 
-    public List<AtividadeModel> getAtividadesSecundarias() {
+    public List<AtividadeSecundariaModel> getAtividadesSecundarias() {
         return atividadesSecundarias;
     }
 
-    public void setAtividadesSecundarias(List<AtividadeModel> atividadesSecundarias) {
+    public void setAtividadesSecundarias(List<AtividadeSecundariaModel> atividadesSecundarias) {
         this.atividadesSecundarias = atividadesSecundarias;
     }
 

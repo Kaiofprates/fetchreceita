@@ -2,17 +2,16 @@ package br.com.fetchreceita.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Table(name = "TB_QSA")
 public class QsaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "qsa_id")
     private UUID id;
 
     private String nome;
